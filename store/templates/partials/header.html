@@ -1,0 +1,51 @@
+{% load static i18n %}
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+  <div class="container">
+
+    <!-- الشعار -->
+    <a class="navbar-brand me-4" href="/">
+      <span class="brand-primary">بوابة</span><span class="brand-accent">الكتب</span>
+    </a>
+
+    <!-- زر التوغل للجوال -->
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false"
+            aria-label="{% trans 'Toggle navigation' %}">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- المحتوى -->
+    <div class="collapse navbar-collapse" id="mainNav">
+
+      <!-- روابط الفئات -->
+      <ul class="navbar-nav me-auto nav-categories">
+        {% for category in categories %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'store.category' and request.GET.category == category.id|stringformat:'s' %}active{% endif %}"
+               href="{% url 'store.category' category.id %}">
+              {{ category.name }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <!-- البحث -->
+      <form class="d-flex search-form me-3" action="{% url 'store.category' %}">
+        <input name="query" class="form-control" type="search"
+               placeholder="{% trans 'بحث' %}"
+               value="{{ request.GET.query }}">
+        <button class="btn btn-search" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+      <!-- زر السلة -->
+      <a href="{% url 'store.cart' %}" class="btn btn-cart position-relative">
+        <i class="bi bi-cart-fill"></i>
+        <span class="cart-badge">{{ cart_products|length }}</span>
+      </a>
+
+    </div>
+  </div>
+</nav>

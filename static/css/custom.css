@@ -1,0 +1,415 @@
+/* ===============================
+        Navbar Styles
+=============================== */
+
+/* ألوان عامة */
+:root {
+    --navbar-bg: #333E48;
+    --navbar-text: #ffffff;
+    --navbar-hover: #79aec8;
+    --accent: #f5dd5d;
+}
+
+/* 1) خلفية شريط التنقل */
+.navbar.custom-navbar {
+background-color: var(--navbar-bg) !important;
+padding: 0.75rem 1rem;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 2) الشعار */
+.navbar.custom-navbar .navbar-brand {
+font-size: 1.5rem;
+font-weight: bold;
+color: var(--navbar-text) !important;
+}
+.brand-primary { color: var(--navbar-text) !important; }
+.brand-accent  { color: var(--accent) !important; }
+
+/* 3) روابط الفئات */
+.navbar.custom-navbar .nav-categories .nav-link {
+color: #ccc !important;
+margin: 0 0.5rem;
+position: relative;
+transition: color .3s;
+}
+.navbar.custom-navbar .nav-categories .nav-link:hover,
+.navbar.custom-navbar .nav-categories .nav-link.active {
+color: var(--navbar-hover) !important;
+}
+.navbar.custom-navbar .nav-categories .nav-link.active::after,
+.navbar.custom-navbar .nav-categories .nav-link:hover::after {
+content: '';
+position: absolute;
+bottom: -4px;
+left: 0;
+width: 100%;
+height: 2px;
+background: var(--navbar-hover);
+}
+
+/* 4) حقل البحث */
+.navbar.custom-navbar .search-form {
+max-width: 250px;
+position: relative;
+}
+.navbar.custom-navbar .search-form .form-control {
+border-radius: 0;
+border: none;
+padding: 0.4rem 0.75rem;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+-ms-border-radius: 0;
+-o-border-radius: 0;
+}
+.navbar.custom-navbar .search-form .btn-search {
+border-radius: 0.25rem 0 0 0.25rem;
+border: none;
+background: var(--accent);
+color: #333;
+padding: 0.35rem 0.6rem;
+transition: background .3s;
+-webkit-border-radius: 0.25rem 0 0 0.25rem;
+-moz-border-radius: 0.25rem 0 0 0.25rem;
+-ms-border-radius: 0.25rem 0 0 0.25rem;
+-o-border-radius: 0.25rem 0 0 0.25rem;
+}
+.navbar.custom-navbar .search-form .btn-search:hover {
+background: var(--navbar-hover);
+color: #fff;
+}
+
+/* 5) زر السلة */
+.navbar.custom-navbar .btn-cart {
+border: none;
+background: var(--accent);
+color: #333;
+font-size: 1.25rem;
+padding: 0.5rem;
+border-radius: 0.5rem;
+transition: background .3s;
+}
+.navbar.custom-navbar .btn-cart:hover {
+background: var(--navbar-hover);
+color: #fff;
+}
+.navbar.custom-navbar .btn-cart .bi-cart-fill {
+vertical-align: middle;
+}
+
+/* 6) عداد السلة (badge) */
+.cart-badge {
+position: absolute;
+top: -6px;
+right: -6px;
+background: #dc3545;
+color: #fff;
+font-size: 0.65rem;
+line-height: 1;
+padding: 0.2em 0.4em;
+border-radius: 50%;
+border: 2px solid var(--navbar-bg);
+}
+
+/* 7) تجاوب (<992px) */
+@media (max-width: 991px) {
+.navbar.custom-navbar .nav-categories {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    margin: 0.75rem 0;
+}
+.navbar.custom-navbar .nav-categories .nav-link {
+    margin: 0;
+    padding: 0.5rem 1rem;
+}
+.navbar.custom-navbar .search-form {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.navbar.custom-navbar .btn-cart {
+    margin: 0 auto;
+}
+}
+
+/* ======================================
+Custom Slider & Image Styles 
+====================================== */
+
+
+.main-slider {
+    background: none;
+    padding: 1em 0;    
+}
+
+
+.main-slider .container.pt-5 {
+    padding-top: 1em !important;
+}
+
+
+.main-slider .swiper-wrapper {
+    display: flex !important;
+    gap: 1rem;         
+    padding-bottom: 1rem;
+}
+
+
+.main-slider .swiper-slide {
+    width: 80% !important;   
+    max-width: 900px;
+    margin: 0 auto;          
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between;
+    padding: 2rem !important;
+    position: relative;
+}
+
+
+.main-slider .swiper-slide .col-md-4,
+.main-slider .swiper-slide .col-md-8 {
+    padding: 0 !important;
+}
+.main-slider .swiper-slide .col-md-4 {
+    flex: 0 0 40%;
+    max-width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-slider .swiper-slide .col-md-8 {
+flex: 0 0 60%;
+max-width: 60%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding-left: 1rem;
+}
+
+
+.main-slider .swiper-slide img {
+    height: 210px !important;      
+    width: auto !important;
+    object-fit: cover;             
+    border: 3px solid #fff;          
+    border-radius: 0.75rem;         
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    transition: transform .3s;
+}
+.main-slider .swiper-slide img:hover {
+    transform: scale(1.03);
+}
+
+
+.main-slider .swiper-button-prev,
+.main-slider .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    color: var(--secondary);
+    z-index: 10;
+}
+.main-slider .swiper-button-prev { left: 1rem; }
+.main-slider .swiper-button-next { right: 1rem; }
+.main-slider .swiper-button-prev:hover,
+.main-slider .swiper-button-next:hover {
+    background-color: var(--darkened-bg);
+}
+
+
+.main-slider .swiper-pagination {
+    position: absolute;
+    bottom: 1rem !important;
+    width: 100%;
+    text-align: center;
+}
+.main-slider .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: var(--secondary);
+    opacity: 0.4;
+    margin: 0 4px;
+    transition: opacity .3s;
+}
+.main-slider .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.main-slider .d-none.d-lg-block {
+    display: block !important;
+}
+
+/* 10) تجاوب (<992px) */
+@media (max-width: 991px) {
+.main-slider .swiper-slide {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem;
+}
+.main-slider .swiper-wrapper {
+    gap: 1rem;
+}
+.main-slider .swiper-slide .col-md-4,
+.main-slider .swiper-slide .col-md-8 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.main-slider .swiper-slide .col-md-8 {
+    padding-left: 0 !important;
+}
+}
+
+/* 11) تجاوب (<576px) */
+@media (max-width: 575px) {
+.main-slider {
+    padding: 0.5rem 0 !important;
+}
+.main-slider .swiper-button-prev,
+.main-slider .swiper-button-next {
+    width: 36px !important;
+    height: 36px !important;
+}
+.main-slider .swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0 3px !important;
+}
+}
+/* ================================
+Hide Image & Improve Text on Medium/Small
+================================ */
+@media (max-width: 991px) {
+/* أخفاء عمود الصورة */
+.main-slider .swiper-slide .col-md-4 {
+    display: none !important;
+}
+/* توسعة عمود النص وتركزين المحتوى */
+.main-slider .swiper-slide .col-md-8 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    text-align: center !important;
+}
+/* ضبط عنوان الشريحة */
+.main-slider .swiper-slide .col-md-8 h1 {
+    font-size: 2rem !important;
+    margin-bottom: 0.5rem !important;
+}
+/* ضبط الفقرة */
+.main-slider .swiper-slide .col-md-8 p {
+    font-size: 1.125rem !important;
+    color: var(--body-quiet-color) !important;
+    line-height: 1.6 !important;
+    max-width: 600px;
+    margin: 0 auto 1rem !important;
+}
+/* إخفاء أزرار prev/next لأن الشريحة كاملة */
+.main-slider .swiper-button-prev,
+.main-slider .swiper-button-next {
+    display: none !important;
+}
+/* إبقاء نقاط الترقيم */
+.main-slider .swiper-pagination {
+    display: block !important;
+}
+}
+
+/* ========================================
+Vertically center text in slide cards
+on medium/small screens (≤991px)
+======================================== */
+@media (max-width: 991px) {
+.main-slider .swiper-slide {
+    /* ثابت أدنى ارتفاع لتعطي مجالاً للتوسيط */
+    min-height: 300px !important;
+    
+    /* Flexbox لتوسيط المحتوى عمودياً وأفقياً */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* مساحة داخلية مناسبة */
+    padding: 1.5rem !important;
+}
+
+/* إخفاء عمود الصورة إن لم تفعليه سابقاً */
+.main-slider .swiper-slide .col-md-4 {
+    display: none !important;
+}
+
+/* اجعل عمود النص يملأ العرض بالكامل */
+.main-slider .swiper-slide .col-md-8 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+/* تنسيق العنوان والفقرات */
+.main-slider .swiper-slide .col-md-8 h1 {
+    margin-bottom: 0.5rem !important;
+}
+.main-slider .swiper-slide .col-md-8 p {
+    margin: 0 !important;
+}
+}
+/* =================================
+   Custom Sidebar / Category List
+   ================================= */
+.custom-sidebar {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.custom-list-group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.custom-list-group li + li {
+  margin-top: 0.5rem;
+}
+.custom-list-group li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #e8e8e8;
+  border-radius: 0.5rem;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+.custom-list-group li a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.custom-list-group li.active a {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #fff;
+}
+
+
+
+  /* === Footer logo color override === */
+.footer .brand-primary { 
+    color: #fff !important;   
+}
+.footer .brand-accent { 
+    color: var(--accent) !important;  
+}
